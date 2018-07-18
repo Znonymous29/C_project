@@ -75,7 +75,7 @@ Array<T>::operator T* () {
 }
 
 template<class T>
-const Array<T>::operator const T* () const {
+Array<T>::operator const T* () const {
 	return list;
 }
 
