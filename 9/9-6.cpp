@@ -1,42 +1,46 @@
-# include <iostream>
-# include "LinkedList.h"
+#include<iostream>
+#include "LinkedList.h"
 using namespace std;
 
+template<class T>
+class orderList:public linkedlist<T> {
+	public:
+		void insert(const T&item);
+};
+
+template<class T>
+void orderList<T>::insert(const T&item){
+	this->reset();
+	while(!this->endOfList()){
+		if(item<this->data()){
+			break;
+		}
+		this->next();
+	}
+	this->insertAt(item);
+}
+
 int main(){
-	linkedlist<int>a;
-	linkedlist<int>b;
-	cout << "输入ListA里的数值：" << endl; 
+	orderList<int>a;
+	orderList<int>b;
+	cout << "请输入表A的五个整数："<<endl;
 	for (int i=0;i<5;i++){
 		int item;
 		cin >> item;
-		a.insertRear(item);
+		a.insert(item);
 	}
-	a.reset();
-	cout << "a:"; 
-	while(!a.endOfList()){ 
-		cout<<a.data()<<" "; 
-		a.next(); 
-	}
-	cout<< endl;
-	cout << "输入ListB里的数值：" << endl; 
+	cout<<"表A：";
+	a.print();
+	cout << "请输入表B的五个整数："<<endl;
 	for (int i=0;i<5;i++){
 		int item;
 		cin >> item;
-		b.insertRear(item);
-		a.insertRear(item);
+		b.insert(item);
+		a.insert(item);
 	}
-	b.reset();
-	cout << "b:"; 
-	while(!b.endOfList()){ 
-		cout<<b.data()<<" "; 
-		b.next(); 
-	}
-	a.reset();
-	cout<< endl;
-	cout << "a中插入b后:"; 
-	while(!a.endOfList()){ 
-		cout<<a.data()<<" "; 
-		a.next(); 
-	}
-	
+	cout<<"表B：";
+	b.print();
+	cout<<"表A：";
+	a.print();			
+	return 0;
 }

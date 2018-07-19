@@ -2,6 +2,7 @@
 #define NODE_H
 template<class T>
 class linkedlist;//ĞÂÌí
+
 template<class T>//ĞÂÌí
 class node
 { 
@@ -33,12 +34,10 @@ void node<T>::insertAfter(node<T>*p)
 { p->next=next; next=p;	}
 
 template<class T>
-node<T>*node<T>::deleteAfter()
-{
+node<T>*node<T>::deleteAfter() {
 	node<T>*tempPtr=next; 
 	if(next==0)return 0;
 	next=tempPtr->next; 
 	return tempPtr;
 }
 #endif
-

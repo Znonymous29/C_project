@@ -48,23 +48,28 @@ void linkedlist<T>::freeNode(node<T>*p)//释放结点
 
 template<class T>
 void linkedlist<T>::print()
-{    reset();
+{    
+	reset();
 	while(!endOfList()) { 
 		cout<<data()<<" "; 
 		next(); 
 	}
-	cout<<endl; cout<<"size="<<getSize()<<endl;
+	cout<<endl; 
+	cout<<"size="<<getSize()<<endl;
 }
 
 template<class T>
 linkedlist<T>::linkedlist()//构造函数
-{    size=0;
-	front=rear=new node<T>(0); currPtr=prevPtr=front;
+{    
+	size=0;
+	front=rear=new node<T>(0); 
+	currPtr=prevPtr=front;
 }
 
 template<class T>
 int linkedlist<T>::currentPosition(void)//返回游标当前的位置
-{   node<T>*tempPtr=front->nextNode(); position=0;
+{   node<T>*tempPtr=front->nextNode(); 
+	position=0;
 	while(tempPtr!=currPtr)
 	{ tempPtr=tempPtr->nextNode(); position++; }
 	return position;	}
