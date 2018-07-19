@@ -10,8 +10,8 @@ class DNode {
 		DNode(const T &data, DNode<T> *prior=0, DNode<T> *next=0);
 		DNode<T> * nextNode();
 		DNode<T> * beforeNode();
-		const DNode<T> * nextDNode() const;
-		const DNode<T> * beforeDNode() const;
+		const DNode<T> * nextNode() const;
+		const DNode<T> * beforeNode() const;
 		void insertAfter(DNode<T> *p);
 		void insertBefore(DNode<T> *p);
 		DNode<T> * deleteAfter();
@@ -19,7 +19,7 @@ class DNode {
 };
 
 template<class T>
-DNode(const T &data, DNode<T> *prior, DNode<T> *next):data(data),prior(prior),next(next){
+DNode<T>::DNode(const T &data, DNode<T> *prior, DNode<T> *next):data(data),prior(prior),next(next){
 };
 
 template<class T>
